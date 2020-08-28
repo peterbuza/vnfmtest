@@ -14,13 +14,6 @@
      debug:
       msg: "{{ pip_address.state.name }}"
             
-   - name: Create Gateway Subnet
-     azure_rm_subnet:
-      resource_group: "{{ rg_name }}"
-      virtual_network_name: "{{ vnet_name }}"
-      name: "{{ subnet_name }}"
-      address_prefix_cidr: "192.168.1.224/27"
-   
    - name: Create new gateway  
      azure_rm_virtualnetworkgateway:
       resource_group: "{{ rg_name }}"
