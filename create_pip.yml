@@ -10,6 +10,6 @@
        sku: basic
       register: pip_address
       
-- name: Display pip
-   debug:
-    var: pip_address
+   - name: Display pip
+     debug:
+      var: pip_address
