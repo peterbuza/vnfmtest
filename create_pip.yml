@@ -1,0 +1,15 @@
+---
+- name: Create vnet-to-vnet connection
+  hosts: localhost
+  tasks:
+   - name: Create new public IP for Azure Gateway
+     azure_rm_publicipaddress:
+       allocation_method: static
+       name: dev-az-ew-customer01-pip
+       resource_group: test
+       sku: basic
+      register: pip_address
+      
+- name: Display pip
+   debug:
+    var: pip_address
