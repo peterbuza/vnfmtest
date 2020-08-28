@@ -8,7 +8,7 @@
        name: dev-az-ew-customer01-pip
        resource_group: test
        sku: basic
-      register: pip_address
+     register: pip_address
             
    - name: Create new gateway  
      azure_rm_virtualnetworkgateway:
