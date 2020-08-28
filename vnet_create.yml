@@ -6,7 +6,7 @@
      azure_rm_publicipaddress:
        allocation_method: static
        name: dev-az-ew-customer01-pip
-       resource_group: {{ rg_name }}
+       resource_group: "{{ rg_name }}"
        sku: basic
      register: pip_address
      
@@ -16,25 +16,23 @@
             
    - name: Create Gateway Subnet
      azure_rm_subnet:
-      resource_group: {{ rg_name }}
-      virtual_network_name: {{ vnet_name }}
-      name: {{ subnet_name }}
+      resource_group: "{{ rg_name }}"
+      virtual_network_name: "{{ vnet_name }}"
+      name: "{{ subnet_name }}"
       address_prefix_cidr: "192.168.100.0/24"
    
    - name: Create new gateway  
      azure_rm_virtualnetworkgateway:
-      resource_group: test
+      resource_group: "{{ rg_name }}"
       name: dev-az-ew-customer01-gw
       ip_configurations:
         - name: testipconfig
           private_ip_allocation_method: Dynamic
           public_ip_address_name: "{{ pip_address.state.name }}"
-          subnet: {{ subnet_name }}
-      virtual_network: {{ vnet_name }}
+          subnet: "{{ subnet_name }}"
+      virtual_network: "{{ vnet_name }}"
      register: vnet_info
   
    - name: Print VNet info
      debug:
       var: vnet_info
-
-
