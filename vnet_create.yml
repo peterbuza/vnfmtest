@@ -9,6 +9,11 @@
        resource_group: test
        sku: basic
      register: pip_address
+     
+   -name: Print pip info
+    debug:
+     msg: "{{ pip_address.state.ip_address }}"
+     msg: "{{ pip_address.state.name }}"
             
    - name: Create new gateway  
      azure_rm_virtualnetworkgateway:
@@ -17,7 +22,7 @@
       ip_configurations:
         - name: testipconfig
           private_ip_allocation_method: Dynamic
-          public_ip_address_name: "{{ pip_address.name }}"
+          public_ip_address_name: "{{ pip_address.state.name }}"
       virtual_network: test_vnet
      register: vnet_info
   
