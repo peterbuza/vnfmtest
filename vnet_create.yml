@@ -4,7 +4,7 @@
   tasks:
    - name: Create new public IP for Azure Gateway
      azure_rm_publicipaddress:
-       allocation_method: static
+       allocation_method: dynamic
        name: dev-az-ew-customer01-pip
        resource_group: "{{ rg_name }}"
        sku: basic
