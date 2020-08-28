@@ -17,11 +17,9 @@
       ip_configurations:
         - name: testipconfig
           private_ip_allocation_method: Dynamic
-          public_ip_address_name: {{pip.address}}
-      virtual_network: myVirtualNetwork
-      tags:
-        common: "xyz"
-      register: vnet_info
+          public_ip_address_name: {{ pip_address.ip_address }}
+      virtual_network: test_vnet
+     register: vnet_info
   
    - name: Print VNet info
      debug:
