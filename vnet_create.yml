@@ -13,11 +13,11 @@
    - name: Create new gateway  
      azure_rm_virtualnetworkgateway:
       resource_group: test
-      name: DT-customer01-gw
+      name: dev-azew-customer01-gw
       ip_configurations:
         - name: testipconfig
           private_ip_allocation_method: Dynamic
-          public_ip_address_name: {{ pip_address.ip_address }}
+          public_ip_address_name: {{ pip_address.name }}
       virtual_network: test_vnet
      register: vnet_info
   
