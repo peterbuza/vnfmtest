@@ -17,7 +17,7 @@
       ip_configurations:
         - name: testipconfig
           private_ip_allocation_method: Dynamic
-          public_ip_address_name: {{ pip_address.name }}
+          public_ip_address_name: "{{ pip_address.name }}"
       virtual_network: test_vnet
      register: vnet_info
   
