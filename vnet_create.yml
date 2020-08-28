@@ -1,12 +1,30 @@
 ---
-- name: Create the new vnet
-  azure_rm_virtualnetwork:
-    name: "test_vnet01"
-    resource_group: "test"
-  register: vnet_info
+- name: Create vnet-to-vnet connection
+  hosts: localhost
+  tasks:
+   - name: Create new public IP for Azure Gateway
+     azure_rm_publicipaddress:
+       allocation_method: static
+       name: dev-az-ew-customer01-pip
+       resource_group: test
+       sku: basic
+      register: pip_address
+            
+   - name: Create new gateway  
+     azure_rm_virtualnetworkgateway:
+      resource_group: test
+      name: DT-customer01-gw
+      ip_configurations:
+        - name: testipconfig
+          private_ip_allocation_method: Dynamic
+          public_ip_address_name: {{pip.address}}
+      virtual_network: myVirtualNetwork
+      tags:
+        common: "xyz"
+      register: vnet_info
   
-- name: Print VNet info
-      debug:
-       var: vnet_info
+   - name: Print VNet info
+     debug:
+      var: vnet_info
 
 
