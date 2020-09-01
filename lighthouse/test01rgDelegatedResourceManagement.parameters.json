@@ -8,6 +8,9 @@
         "rgName": {
             "value": "test"
         },
+	"rgLocation": {
+            "value": "West Europe"
+        },
         "mspOfferDescription": {
             "value": "Delegated Resource Group Management"
         },
