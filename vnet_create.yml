@@ -13,7 +13,25 @@
    - name: Print pip info
      debug:
       msg: "{{ pip_address.state.name }}"
-            
+   
+   - name: Create the new vnet
+     azure_rm_virtualnetwork:
+      name: "{{ vnet_name }}"
+      resource_group: "{{ rg_name }}"
+     register: vnet_info
+   
+   - name: Create new Gateway Subnet
+     azure_rm_subnet:
+      resource_group: "{{ rg_name }}"
+      virtual_network_name: "{{ vnet_name }}"
+      name: "GatewaySubnet"
+      address_prefix_cidr: "192.168.1.224/27"
+     register: subnet_info
+     
+   - name: Print subnet info
+     debug:
+      var: subnet_info                     
+   
    - name: Create new gateway  
      azure_rm_virtualnetworkgateway:
       resource_group: "{{ rg_name }}"
