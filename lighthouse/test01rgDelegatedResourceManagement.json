@@ -43,6 +43,9 @@
         },
         "rgName": {
             "type": "string"
+        }
+        "rgLocation": {
+            "type": "string"
         }              
     },
     "variables": {
