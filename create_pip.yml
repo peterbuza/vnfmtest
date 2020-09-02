@@ -5,8 +5,8 @@
    - name: Create new public IP for Azure Gateway
      azure_rm_publicipaddress:
        allocation_method: static
-       name: dev-az-ew-customer01-pip
-       resource_group: test
+       name: dev-az-ew-cust01pip01-pip
+       resource_group: "{{ rg_name }}"
        sku: basic
      register: pip_address
       
