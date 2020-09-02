@@ -30,5 +30,5 @@
      register: vnet_to_vnet
 
 - name: vtv info
-   debug:
-    msg: "{{ vnet_to_vnet }}"
+  debug:
+   msg: "{{ vnet_to_vnet }}"
