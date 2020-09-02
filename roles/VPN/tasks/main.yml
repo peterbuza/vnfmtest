@@ -20,7 +20,7 @@
       id: "/subscriptions/389e78a9-234f-4268-be07-4a14e581ccd4/resourceGroups/test/providers/Microsoft.Network/virtualNetworkGateways/dev-az-ew-customer01-gw"
      virtualNetworkGateway2:
       id: "/subscriptions/f08e6091-2405-43e0-86be-9bd1f7e13a46/resourceGroups/vnfm_management_rg/providers/Microsoft.Network/virtualNetworkGateways/management_zone-gateway"
-     tags:
+    tags:
      CreatedBy: "{{ tower_user_name }}"
      Customer: "{{ customer_name }}"
      CostCenter: "{{ CC }}" 
