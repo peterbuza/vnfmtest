@@ -13,8 +13,8 @@
     location: "{{ region }}"
 #    apiVersion: "2020-05-01"
     properties:
-     connectionType: 0
-     connectionProtocol: 1 
+     connectionType: 1
+     connectionProtocol: 2 
      sharedKey: "{{ lookup('env', 'AZURE_SECRET') }}"
      virtualNetworkGateway1:
       id: "/subscriptions/f08e6091-2405-43e0-86be-9bd1f7e13a46/resourceGroups/vnfm_management_rg/providers/Microsoft.Network/virtualNetworkGateways/management_zone-gateway"
