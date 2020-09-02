@@ -11,7 +11,7 @@
    resource_name: "{{ vtv_name }}"
    body:
     location: "{{ region }}"
-    apiVersion: "2020-05-01"
+#    apiVersion: "2020-05-01"
     properties:
      connectionType: 0
      connectionProtocol: 1 
