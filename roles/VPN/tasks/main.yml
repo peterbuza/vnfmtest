@@ -17,7 +17,7 @@
      connectionProtocol: 0 
      sharedKey: "vnmf12345"
      virtualNetworkGateway1:
-      id: "/subscriptions/389e78a9-234f-4268-be07-4a14e581ccd4/resourceGroups/test/providers/Microsoft.Network/virtualNetworkGateways/dev-az-ew-customer01-gw"
+      id: "/subscriptions/389e78a9-234f-4268-be07-4a14e581ccd4/resourceGroups/test/providers/Microsoft.Network/virtualNetworkGateways/dev-az-ew-cust01gw01-gw"
      virtualNetworkGateway2:
       id: "/subscriptions/f08e6091-2405-43e0-86be-9bd1f7e13a46/resourceGroups/vnfm_management_rg/providers/Microsoft.Network/virtualNetworkGateways/management_zone-gateway"
     tags:
