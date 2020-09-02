@@ -37,7 +37,7 @@
    - name: Create new gateway  
      azure_rm_virtualnetworkgateway:
       resource_group: "{{ rg_name }}"
-      name: dev-az-ew-cust01gw01-gw
+      name: "{{ gw_name }}"
       ip_configurations:
         - name: testipconfig
           private_ip_allocation_method: Dynamic
