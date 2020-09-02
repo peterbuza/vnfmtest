@@ -1,5 +1,5 @@
 ---
-- name: Create vnet-to-vnet connection
+- name: Create VPN gateway with PIP, VNET, GWSUBNET
   hosts: localhost
   tasks:
    - name: Create new public IP for Azure Gateway
