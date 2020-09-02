@@ -1,0 +1,8 @@
+---
+
+- name: Create a new vnet_to_vnet connection
+  hosts: localhost
+  gather_facts: no
+  roles:
+    - VPN
+
