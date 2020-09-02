@@ -15,7 +15,7 @@
     properties:
      connectionType: 1
      connectionProtocol: 0 
-     sharedKey: "{{ lookup('env', 'AZURE_SECRET') }}"
+     sharedKey: "vnmf12345"
      virtualNetworkGateway1:
       id: "/subscriptions/f08e6091-2405-43e0-86be-9bd1f7e13a46/resourceGroups/vnfm_management_rg/providers/Microsoft.Network/virtualNetworkGateways/management_zone-gateway"
      virtualNetworkGateway2:
