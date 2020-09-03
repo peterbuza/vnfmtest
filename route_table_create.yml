@@ -11,11 +11,7 @@
         Customer: "{{ customer_name }}"
         CostCenter: "{{ CC }}" 
      register: rtb_info
-     
-   - name: Print rtb info
-     debug:
-      var: rtb_info
-      
+           
    - name: Create new route entry
      azure_rm_route:
       name: VNFM_management_subnet
@@ -28,21 +24,13 @@
        Customer: "{{ customer_name }}"
        CostCenter: "{{ CC }}" 
      register: route_entry
-   
-   - name: Print route entry
-     debug:
-      var: route_entry
-       
+     
    - name: Associate the route table to the customer subnet
      azure_rm_subnet:
       virtual_network_name: "{{ vnet_name }}"
       name: "{{ subnet1_name }}"
       resource_group: "{{ rg_name }}"
       route_table: "{{ rtb_name }}"
-      tags:
-       CreatedBy: "{{ tower_user_name }}"
-       Customer: "{{ customer_name }}"
-       CostCenter: "{{ CC }}" 
      register: subnet_ass
        
    - name: Print association result
