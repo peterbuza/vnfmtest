@@ -6,6 +6,10 @@
      azure_rm_routetable:
        name: "{{ rtb_name }}"
        resource_group: "{{ rg_name }}"
+       tags:
+        CreatedBy: "{{ tower_user_name }}"
+        Customer: "{{ customer_name }}"
+        CostCenter: "{{ CC }}" 
      register: rtb_info
      
    - name: Print rtb info
@@ -19,6 +23,10 @@
       route_table_name: "{{ rtb_name }}"
       address_prefix: "{{ vnfm_mgmt_snet }}"
       next_hop_type: virtual_network_gateway 
+      tags:
+       CreatedBy: "{{ tower_user_name }}"
+       Customer: "{{ customer_name }}"
+       CostCenter: "{{ CC }}" 
      register: route_entry
      
    - name: Print route entry
@@ -31,9 +39,13 @@
       name: "{{ subnet1_name }}"
       resource_group: "{{ rg_name }}"
       route_table: "{{ rtb_name }}"
+      tags:
+       CreatedBy: "{{ tower_user_name }}"
+       Customer: "{{ customer_name }}"
+       CostCenter: "{{ CC }}" 
      register: subnet_ass
        
-    - name: Print association result
-      debug:
-       var: subnet_ass
+   - name: Print association result
+     debug:
+      var: subnet_ass
        
