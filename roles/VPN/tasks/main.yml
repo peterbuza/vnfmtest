@@ -14,7 +14,7 @@
     properties:
      connectionType: 1
      connectionProtocol: 0 
-     sharedKey: "vtv_psk"
+     sharedKey: "{{ vtv_psk }}"
      virtualNetworkGateway1:
       id: "{{ DT_gw_id }}"
       location: "{{ region }}"
@@ -25,8 +25,7 @@
      CreatedBy: "{{ tower_user_name }}"
      Customer: "{{ customer_name }}"
      CostCenter: "{{ CC }}" 
-  register: vnet_to_vnet
-
+  
 - name: Create new vnet_to_vnet connection from customer to DT
   azure_rm_resource:
    subscription_id: "{{ lookup('env', 'AZURE_SUBSCRIPTION_ID') }}"
@@ -53,6 +52,3 @@
      CreatedBy: "{{ tower_user_name }}"
      Customer: "{{ customer_name }}"
      CostCenter: "{{ CC }}" 
-- name: vtv info
-  debug:
-   msg: "{{ vnet_to_vnet }}"
