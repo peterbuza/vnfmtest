@@ -19,9 +19,18 @@
       name: "{{ vnet_name }}"
       resource_group: "{{ rg_name }}"
       address_prefixes_cidr: 
-       - "172.16.0.0/24"
+       - "{{ vnet_addressspace }}"
+       - "{{ vnet_addressspace2 }}"
      register: vnet_info
    
+   - name: Create new Subnet
+     azure_rm_subnet:
+      resource_group: "{{ rg_name }}"
+      virtual_network_name: "{{ vnet_name }}"
+      name: "{{ vnet_subnet_name }}"
+      address_prefix_cidr: "{{ subnet_iprange }}"
+     register: subnet_info
+     
    - name: Create new Gateway Subnet
      azure_rm_subnet:
       resource_group: "{{ rg_name }}"
