@@ -24,7 +24,7 @@
         virtualNetworkGateway2:
          id: "{{ DT_gw_id }}" 
          location: "{{ region }}"
-       tags:
-        CreatedBy: "{{ tower_user_name }}"
-        Customer: "{{ customer_name }}"
-        CostCenter: "{{ CC }}" 
+      tags:
+       CreatedBy: "{{ tower_user_name }}"
+       Customer: "{{ customer_name }}"
+       CostCenter: "{{ CC }}" 
