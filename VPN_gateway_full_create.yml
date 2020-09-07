@@ -4,11 +4,14 @@
   tasks:
    - name: Create new public IP for Azure Gateway
      azure_rm_publicipaddress:
-       allocation_method: dynamic
-       name: "{{ pip_name }}"
-       resource_group: "{{ rg_name }}"
-       sku: basic
-     register: pip_address
+      allocation_method: dynamic
+      name: "{{ pip_name }}"
+      resource_group: "{{ rg_name }}"
+      sku: basic
+      tags:
+       CreatedBy: "{{ tower_user_name }}"
+       Customer: "{{ customer_name }}"
+       CostCenter: "{{ CC }}"register: pip_address
      
    - name: Print pip info
      debug:
@@ -21,7 +24,10 @@
       address_prefixes_cidr: 
        - "{{ vnet_addressspace }}"
        - "{{ vnet_addressspace2 }}"
-     register: vnet_info
+      tags:
+       CreatedBy: "{{ tower_user_name }}"
+       Customer: "{{ customer_name }}"
+       CostCenter: "{{ CC }}"register: vnet_info
    
    - name: Create new Subnet
      azure_rm_subnet:
@@ -53,7 +59,10 @@
           public_ip_address_name: "{{ pip_address.state.name }}"
           subnet: "{{ subnet_name }}"
       virtual_network: "{{ vnet_name }}"
-     register: vnet_info
+      tags:
+       CreatedBy: "{{ tower_user_name }}"
+       Customer: "{{ customer_name }}"
+       CostCenter: "{{ CC }}"register: vnet_info
   
    - name: Print VNet info
      debug:
