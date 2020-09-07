@@ -36,7 +36,7 @@
       resource_group: "{{ rg_name }}"
       virtual_network_name: "{{ vnet_name }}"
       name: "GatewaySubnet"
-      address_prefix_cidr: "172.16.0.224/27"
+      address_prefix_cidr: "{{ gwsnet_iprange }}"
      register: subnet_info
      
    - name: Print subnet info
