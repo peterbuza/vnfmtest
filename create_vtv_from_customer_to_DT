@@ -1,5 +1,5 @@
 ---
-- name: Create new vnet_to_vnet connection from customer to DT
+- name: Create VtV from customer to DT
   hosts: localhost
   tasks:
    - name: vtv
