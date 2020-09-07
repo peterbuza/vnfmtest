@@ -1,0 +1,26 @@
+- name: Create new vnet_to_vnet connection from customer to DT
+  azure_rm_resource:
+   subscription_id: "{{ lookup('env', 'AZURE_SUBSCRIPTION_ID') }}"
+   client_id: "{{ lookup('env', 'AZURE_CLIENT_ID') }}"
+   tenant: "{{ lookup('env', 'AZURE_TENANT') }}"
+   secret: "{{ lookup('env', 'AZURE_SECRET') }}"
+   resource_group: "{{ rg_name }}"
+   resource_type: "connections"
+   provider: "Network"
+   resource_name: "{{ vtv_name }}"
+   body:
+    location: "{{ region }}"
+    properties:
+     connectionType: 1
+     connectionProtocol: 0 
+     sharedKey: "vtv_psk"
+     virtualNetworkGateway1:
+      id: "{{ Cust_gw_id }}"
+      location: "{{ region }}"
+     virtualNetworkGateway2:
+      id: "{{ DT_gw_id }}" 
+      location: "{{ region }}"
+    tags:
+     CreatedBy: "{{ tower_user_name }}"
+     Customer: "{{ customer_name }}"
+     CostCenter: "{{ CC }}" 
