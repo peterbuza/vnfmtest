@@ -2,7 +2,7 @@
 - name: Create VtV from customer to DT
   hosts: localhost
   tasks:
-   - name: vtv
+   - name: vtv from customer to DT
      azure_rm_resource:
       subscription_id: "{{ lookup('env', 'AZURE_SUBSCRIPTION_ID') }}"
       client_id: "{{ lookup('env', 'AZURE_CLIENT_ID') }}"
