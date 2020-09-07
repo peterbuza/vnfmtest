@@ -17,7 +17,7 @@
        properties:
         connectionType: 1
         connectionProtocol: 0 
-        sharedKey: "vtv_psk"
+        sharedKey: "{{ vtv_psk }}"
         virtualNetworkGateway1:
          id: "{{ Cust_gw_id }}"
          location: "{{ region }}"
