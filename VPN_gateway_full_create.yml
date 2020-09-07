@@ -11,7 +11,8 @@
       tags:
        CreatedBy: "{{ tower_user_name }}"
        Customer: "{{ customer_name }}"
-       CostCenter: "{{ CC }}"register: pip_address
+       CostCenter: "{{ CC }}"
+      register: pip_address
      
    - name: Print pip info
      debug:
@@ -27,7 +28,8 @@
       tags:
        CreatedBy: "{{ tower_user_name }}"
        Customer: "{{ customer_name }}"
-       CostCenter: "{{ CC }}"register: vnet_info
+       CostCenter: "{{ CC }}"
+      register: vnet_info
    
    - name: Create new Subnet
      azure_rm_subnet:
