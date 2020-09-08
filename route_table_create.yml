@@ -6,6 +6,7 @@
      azure_rm_routetable:
        name: "{{ rtb_name }}"
        resource_group: "{{ rg_name }}"
+       disable_bgp_route_propagation: true
        tags:
         CreatedBy: "{{ tower_user_name }}"
         Customer: "{{ customer_name }}"
