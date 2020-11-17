@@ -6,7 +6,7 @@
             "value": "VNFM in Public Clouds"
         },
         "rgName": {
-            "value": "test"
+            "value": "Customer_fgt_rg"
         },
 	"rgLocation": {
             "value": "West Europe"
